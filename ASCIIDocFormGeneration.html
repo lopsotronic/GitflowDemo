@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5.dev">
 <meta name="author" content="TechPubs Tools Desk, written in ASCIIdoc">
-<title>ASCIIdoc: Introduction, Common Constructs, Content Reuse and Conditional Content</title>
+<title>ASCIIdoc: Form Generation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,55 +421,118 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
-<h1>ASCIIdoc: Introduction, Common Constructs, Content Reuse and Conditional Content</h1>
+<h1>ASCIIdoc: Form Generation</h1>
 <div class="details">
 <span id="author" class="author">TechPubs Tools Desk, written in ASCIIdoc</span><br>
 <span id="revnumber">version 1.0,</span>
-<span id="revdate">2018-11</span>
+<span id="revdate">2018-12</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#trueintroduction">1. Introduction</a></li>
-<li><a href="#truecommon-constructs">2. Common constructs</a>
-<ul class="sectlevel2">
-<li><a href="#trueadmonitions">2.1. Admonitions</a></li>
-<li><a href="#trueinternal-reference">2.2. Internal reference</a></li>
-<li><a href="#trueprocedure-steps-numbered-list">2.3. Procedure steps (numbered list)</a></li>
-<li><a href="#truetables">2.4. Tables</a></li>
-<li><a href="#truegraphics">2.5. Graphics</a></li>
-</ul>
-</li>
-<li><a href="#trueconditional-content-and-content-re-use">3. Conditional content and content re-use</a>
-<ul class="sectlevel2">
-<li><a href="#truecontent-fragment-re-use">3.1. Content fragment re-use</a></li>
-<li><a href="#trueconditional-content">3.2. Conditional content</a></li>
-</ul>
-</li>
+<li><a href="#truegeneral">1. General</a></li>
+<li><a href="#truenative-asciidoc-checklists">2. Native ASCIIDoc checklists</a></li>
+<li><a href="#truetext-fields">3. Text Fields</a></li>
+<li><a href="#truetext-area">4. Text area</a></li>
+<li><a href="#trueradio-button">5. Radio button</a></li>
+<li><a href="#truecombining-fields-into-forms">6. Combining fields into forms</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="trueintroduction"><a class="anchor" href="#trueintroduction"></a>1. Introduction</h2>
+<h2 id="truegeneral"><a class="anchor" href="#truegeneral"></a>1. General</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>We&#8217;re going to look at some simple examples of content re-use and conditional content using the ASCIIdoc lightweight markup language (LML). Before we get into that, a quick introduction and some simple constructs.</p>
+<p>This document shows how HTML forms are currently handled in ASCIIDoc. With the exception of  <a href="https://asciidoctor.org/docs/user-manual/#checklist">checklists</a>, ASCIIDoc uses the <a href="https://asciidoctor.org/docs/user-manual/#pass-blocks">passthrough block</a> mechanism to render elements like forms.</p>
 </div>
 <div class="paragraph">
-<p>ASCIIdoc is a plaintext LML with some simple formatting marks to create things like lists, tables, figures, and other constructs. The idea with LMLs was to provide something like XML&#8217;s semantic tagging without the  "angle bracket tax" and the extreme complexity of constructs like namespaces. ASCIIdoc is exhaustively documented <a href="https://ASCIIdoctor.org/docs/ASCIIdoc-syntax-quick-reference/">here</a> and all over the web.</p>
+<p>The advantage of using ASCIIdoc for form generation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Access to other ASCIIdoc elements and directives, such as admonitions, headings, and others.</p>
+</li>
+<li>
+<p>The surrounding HTML around the form passthroughs can be managed in the ASCIIDoc/Git document processing pipeline, as opposed to a full web CMS with its corresponding overhead and maintenance.</p>
+</li>
+<li>
+<p>ASCIIDoc mechanisms can be used to manage form elements for specific deliverables, using <a href="https://asciidoctor.org/docs/user-manual/#conditional-preprocessor-directives">conditional content via ifeval statements</a>  and contenbt reuse via <a href="https://asciidoctor.org/docs/user-manual/#include-directive">include</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truenative-asciidoc-checklists"><a class="anchor" href="#truenative-asciidoc-checklists"></a>2. Native ASCIIDoc checklists</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://asciidoctor.org/docs/user-manual/#checklist">Checklists</a> are one of the few form elements handled natively in ASCIIDoc. See the following:</p>
+</div>
+<div class="ulist checklist">
+<div class="title">Sample Interactive Checklist</div>
+<ul class="checklist">
+<li>
+<p><input type="checkbox" data-item-complete="0"> checked</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0"> also checked</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0"> not checked</p>
+</li>
+<li>
+<p>normal list item</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>ASCIIdoc semantics are based on the DocBook XML dictionary; ASCIIdoc can therefore leverage the vast DocBook ecosystem for specialized formatting and for other powerful functionality, notably <a href="https://github.com/kibook/s1kd-tools">S1000D 4.X interoperability</a> and  <a href="https://github.com/redpen-cc/redpen">RedPen</a>, which is capable of <a href="https://en.wikipedia.org/wiki/Simplified_Technical_English">STE</a> checking.</p>
+<p>This is rendered from the following:</p>
 </div>
-<div class="paragraph">
-<p>ASCIIdoc files are text files and can be managed accordingly. The minimal markup means that the source files are easily readable, so CMS infrastructure options are varied. Possibilities include: an ASCIIdoc front end for technical publications, like <a href="https://antora.org/">Antora</a>; a stock Version Control System (VCS) like Git, Mercurial, Perforce, Team Foundation, etc.; a simple CMS; or an enterprise Wiki like <a href="https://en.wikipedia.org/wiki/Foswiki">FosWiki</a> or <a href="https://en.wikipedia.org/wiki/MoinMoin">M2</a>. Finally, you could use a flat file structure, so long as your recordkeeping was solid.</p>
-</div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="ASCIIdocFlow7.svg" alt="ASCIIdocFlow7.svg">
+<pre class="highlightjs highlight"><code class="language-adoc" data-lang="adoc">.Sample Interactive Checklist
+[%interactive]
+* [ ] checked
+* [ ] also checked
+* [ ] not checked
+*     normal list item</code></pre>
 </div>
-<div class="title">Figure 1. Example ASCIIdoc Infrastructure</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truetext-fields"><a class="anchor" href="#truetext-fields"></a>3. Text Fields</h2>
+<div class="sectionbody">
+<input type="text" name="field1">
+<div class="paragraph">
+<p>Another one</p>
+</div>
+<input type="text" name="field2">
+</div>
+</div>
+<div class="sect1">
+<h2 id="truetext-area"><a class="anchor" href="#truetext-area"></a>4. Text area</h2>
+<div class="sectionbody">
+<textarea name="message" rows="10" cols="30">
+This is an editable text area
+</textarea>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trueradio-button"><a class="anchor" href="#trueradio-button"></a>5. Radio button</h2>
+<div class="sectionbody">
+  <input type="radio" name="radio" value="radio1"> Radio1<br>
+  <input type="radio" name="radio" value="radio2"> Radio2<br>
+  <input type="radio" name="radio" value="radio3"> Radio3
+</div>
+</div>
+<div class="sect1">
+<h2 id="truecombining-fields-into-forms"><a class="anchor" href="#truecombining-fields-into-forms"></a>6. Combining fields into forms</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To make a working form that can send data to a backend system, wrap form elements in a //form element and add a Submit button.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -479,502 +542,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </td>
 <td class="content">
 <div class="paragraph">
-<p>A modern VCS is recommended; there&#8217;s just too much useful infrastructure built up around tools like Git to let it go to waste. Avoid frontends that insist on customized data structures.</p>
+<p>Note that the Submit action won&#8217;t necessarily save this information anywhere unless a backend is set up to receive and process the incoming data from the HTML form.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Incidentally, this document was written in ASCIIdoc with the <a href="https://ASCIIdocfx.com/">ASCIIdocFX</a> writing tool.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>It&#8217;s worth noting I don&#8217;t really know what I am doing here, but I&#8217;m nevertheless managing some pretty complex constructs and constraints.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="truecommon-constructs"><a class="anchor" href="#truecommon-constructs"></a>2. Common constructs</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Let&#8217;s look at some common constructs in ASCIIdoc.</p>
-</div>
-<div class="sect2">
-<h3 id="trueadmonitions"><a class="anchor" href="#trueadmonitions"></a>2.1. Admonitions</h3>
-<div class="paragraph">
-<p>Let&#8217;s look at some admonitions</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>This is a warning</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><a id="Reference"></a>This is a note. This note also has a reference anchor, which we&#8217;ll be using later.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>This is a caution</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>In ASCIIdoc, that is rendered by the following</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-adoc" data-lang="adoc">[WARNING]
-====
-This is a warning
-====
+<form>
+<input type="text" name="field3"><br>
+<input type="text" name="field4"><br>
 
-[NOTE]
-====
-[[Reference]]This is a note. This note also has a reference anchor, which we'll be using later.
-====
-
-[CAUTION]
-====
-This is a caution
-====</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="trueinternal-reference"><a class="anchor" href="#trueinternal-reference"></a>2.2. Internal reference</h3>
-<div class="paragraph">
-<p>Here is an internal link, like an <code>xref</code>. Clicking <a href="#Reference">[Reference]</a> takes you back to the NOTE example, which was tagged with an anchor.</p>
-</div>
-<div class="paragraph">
-<p>That&#8217;s rendered in ASCIIdoc by the following, with "Reference" being the text of the target anchor.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-adoc" data-lang="adoc">Here is an internal link, like an `+xref+`. Clicking &lt;&lt;Reference&gt;&gt; takes you back to the NOTE example, which was tagged with an anchor.</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Note that the "code literal" inline with the text (in this case, 'xref') is declared with a backtick and a plus sign.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>We can also reference any heading by entering the text of the heading in double angle brackets, like this link back to the first paragraph: <a href="#trueintroduction">Introduction</a></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="trueprocedure-steps-numbered-list"><a class="anchor" href="#trueprocedure-steps-numbered-list"></a>2.3. Procedure steps (numbered list)</h3>
-<div class="paragraph">
-<p>This is a sample numbered list</p>
-</div>
-<div class="olist arabic">
-<div class="title">SampleList</div>
-<ol class="arabic">
-<li>
-<p>Procedure step 1</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Procedure step 1 secondary</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>Procedure step 1 tertiary</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Procedure step 2</p>
-</li>
-<li>
-<p>Procedure step 3</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>In ASCIIdoc</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-adoc" data-lang="adoc">.SampleList
-
-. Procedure step 1
-.. Procedure step 1 secondary
-... Procedure step 1 tertiary
-. Procedure step 2
-. Procedure step 3</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="truetables"><a class="anchor" href="#truetables"></a>2.4. Tables</h3>
-<div class="paragraph">
-<p>Here is a sample table</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. Sample table</caption>
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">sample</th>
-<th class="tableblock halign-left valign-top">sample</th>
-<th class="tableblock halign-left valign-top">sample</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sample</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sample</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sample</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sample</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sample</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sample</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Rendered in ASCIIdoc from</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-adoc" data-lang="adoc">.Sample table
-[width="100%",options="header,footer"]
-|====================
-| sample | sample | sample
-| sample | sample | sample
-| sample | sample | sample
-|====================</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>But there&#8217;s much better ways of drawing tables. Here&#8217;s another more useful way of rendering a table. This is pretty neat. This takes an external CSV file and renders it as a table in the content. Death to Copy and Paste!</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 2. Sample table as an external include from a CSV file</caption>
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">ExcelFirstRow</th>
-<th class="tableblock halign-left valign-top">ExcelFirstRow</th>
-<th class="tableblock halign-left valign-top">ExcelFirstRow</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I am from Excel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I am from Excel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I am from Excel</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I am from Excel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I am from Excel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I am from Excel</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I am from Excel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I am from Excel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I am from Excel</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>This is accomplished via an <code>include</code>, as shown below. I&#8217;ve escaped the include with a <code>(\)</code> so it won&#8217;t bring it in again.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-adoc" data-lang="adoc">.Sample table as an external include from a CSV file
-[format="csv", options="header"]
-|===
-include::tools.csv[]
-|===</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="truegraphics"><a class="anchor" href="#truegraphics"></a>2.5. Graphics</h3>
-<div class="paragraph">
-<p>This is a sample figure in SVG format</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="SE2.svg" alt="SE2.svg">
-</div>
-<div class="title">Figure 2. SE2</div>
-</div>
-<div class="paragraph">
-<p>Which looks like this in ASCIIdoc:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-adoc" data-lang="adoc">.SE2
-
-image::SE2.svg[]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Let&#8217;s see a graphviz DOT diagram. This is rendering graphics from a textual graph description, in this case a flow diagram, that&#8217;s inline with the content. Rendering as SVG.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="dot-example3.svg" alt="dot example3.svg">
-</div>
-<div class="title">Figure 3. DOT diagram example</div>
-</div>
-<div class="paragraph">
-<p>Here&#8217;s the same diagram as a text file. More informatio on the DOT graphing language <a href="http://www.graphviz.org/doc/info/lang.html">here</a>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>.DOT diagram example
-[graphviz, dot-example, svg]
-digraph g {
-    a -&gt; b
-    b -&gt; c
-    c -&gt; d
-    d -&gt; a
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Using PlantUML, we can also render UML diagrams from inline text, like so:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="uml-example.png" alt="uml example.png">
-</div>
-<div class="title">Figure 4. UML Diagram Example</div>
-</div>
-<div class="paragraph">
-<p>This is rendered from the following inline UML</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-uml" data-lang="uml">abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List &lt;|-- AbstractList
-Collection &lt;|-- AbstractCollection
-
-Collection &lt;|- List
-AbstractCollection &lt;|- AbstractList
-AbstractList &lt;|-- ArrayList
-
-class ArrayList {
-  Object[] elementData
-  size()
-}
-
-enum TimeUnit {
-  DAYS
-  HOURS
-  MINUTES
-}
-
-annotation SuppressWarnings</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Pretty neat, and without opening so much as a single graphics application. There are many such graph languages that ASCIIdoc can render out-of-the-box.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>ASCIIdoc can <code>include</code> from a large variety of different file types and source code repositories. There&#8217;s a lot more capability than what&#8217;s being shown here.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>OK, now for the hard stuff.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="trueconditional-content-and-content-re-use"><a class="anchor" href="#trueconditional-content-and-content-re-use"></a>3. Conditional content and content re-use</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="truecontent-fragment-re-use"><a class="anchor" href="#truecontent-fragment-re-use"></a>3.1. Content fragment re-use</h3>
-<div class="paragraph">
-<p>Content re-use isn&#8217;t restricted to whole documents (i.e., like a PM referencing DMs). ASCIIdoc can also re-use <em>chunks</em> of documents by by using tagged regions with the <code>include</code> directive.</p>
-</div>
-<div class="paragraph">
-<p>Let&#8217;s reference an admonition from a master warning list that&#8217;s stored in an outside document called <code>warnlist.adoc</code>.</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>This is the second warning in a giant list of warnings. Once again, another fragment</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>That was easy! That was produced by the following ASCIIdoc.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-adoc" data-lang="adoc">include::warnlist.adoc[tag=warn002]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can see the include to the external file <code>warnlist.adoc</code>, and the bracketed tag command <code>warn002</code> picks out the individual content element. This mechanism can use multiple tags separated by commas, or it can use groups of nested tags.</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>As with S1000D, conditions and tags require careful curation and an awareness of the audience&#8217;s appetite for product complexity</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="trueconditional-content"><a class="anchor" href="#trueconditional-content"></a>3.2. Conditional content</h3>
-<div class="paragraph">
-<p>Conditional content is handled in DITA by Conrefs, in S1000D via the Applicability mechanism, Docbook by Profiles. In ASCIIdoc it&#8217;s handled via <a href="https://github.com/asciidoctor/asciidoctor.org/blob/master/docs/_includes/conditional-preprocessor-directives.adoc">Conditional directives</a>. The one we&#8217;re looking at today is the <code>ifeval</code> directive.</p>
-</div>
-<div class="paragraph">
-<p>The following section is dynamically generated depending on the document attributes Engine and CrazySpark. These attributes were declared up in the beginning of the master document.</p>
-</div>
-<div class="paragraph">
-<p>Test change.</p>
-</div>
-<div class="paragraph">
-<p>This information is only displayed when the Engine attribute is set to N30</p>
-</div>
-<div class="sect3">
-<h4 id="truetest-include-for-n30"><a class="anchor" href="#truetest-include-for-n30"></a>3.2.1. Test include for N30</h4>
-<div class="paragraph">
-<p>This is an include of an external document inside of a condition tag. In this include, we have a block of conditional text that is driven by the condition declared in the containing document. In this case, "Crazy Spark Plug" or CrazySpark.</p>
-</div>
-<div class="sect4">
-<h5 id="truecrazyspark-special-instructions"><a class="anchor" href="#truecrazyspark-special-instructions"></a>CrazySpark special instructions</h5>
-<div class="paragraph">
-<p>This information is only displayed for the CRAZY SPARK PLUG part number AAARRRGH. Here is an image inside of the ifeval directive</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="CrazySpark.png" alt="CrazySpark.png">
-</div>
-<div class="title">Figure 5. Identification of faulty ignition system</div>
-</div>
-<div class="paragraph">
-<p>This is where we get out of the <code>include</code></p>
-</div>
-<div class="paragraph">
-<p>Here&#8217;s some content after our conditional block</p>
-</div>
-<div class="paragraph">
-<p>That conditional include looked like this. We&#8217;re escaping everything with <code>(\)</code> in the example below. There is another conditional block with Engine set to N30, which only shows when the Engine attribute is set to N30.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-adoc" data-lang="adoc">ifeval::["{Engine}" == "N20"]
-\This information is only displayed when the Engine attribute is set to N20
-include::testinclude.adoc[]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>It&#8217;s also possible to do this with multiple tags or groups of tags, or to perform an include based on document position, or to pull source code based on methods and functions. Again, there is a lot of functionality not shown in this introduction, much of it shared with DocBook.</p>
-</div>
-<div class="paragraph">
-<p>This text is intended to set apart this development branch as part of a pull request.</p>
-</div>
-</div>
-</div>
-</div>
+<input type="submit" value="Submit">
+</form
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2018-12-19 16:48:25 PST
+Last updated 2018-12-27 16:44:19 PST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
