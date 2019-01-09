@@ -1,0 +1,50 @@
+*General*
+
+This document includes procedures and data for safe and correct usage of {Company} equipment {Type}/{Engine}/{Payload}/{Avionics}. Procedures contained in this document are {Company}-approved procedures. Other techniques or modifications to these procedures are not permitted by {Company}. 
+
+*Audience*
+
+This document is for certified {Company} personnel who have completed {Company} training. 
+
+*Revision history*
+
+.Revision history
+[width="100%",options="header"]
+|====================
+| Version number | Description | Publish date 
+| 1.0 | Initial Release | {docdate} 
+|====================
+
+*Superseded documents*
+
+The content in this document supersedes the content in the documents that follow:
+
+.Superseded documents
+[width="100%",options="header"]
+|====================
+| Document number | Document title | Document release date 
+| N/A | N/A | N/A 
+|====================
+
+*Support*
+
+There's no support for a demo, sucka.
+
+*Warnings, cautions, and notes*
+
+The definitions that follow are for warnings, cautions, and notes in this document. 
+
+[WARNING]
+====
+Warning: A procedure or condition that can cause injury or death if not carefully obeyed.
+====
+
+[CAUTION]
+====
+Caution: A procedure or condition that can cause damage to equipment if not carefully obeyed.
+====
+
+[NOTE]
+====
+Note: A procedure or condition that is sufficiently important to be shown.
+====

@@ -1,0 +1,46 @@
+==== {Company} Operations Description
+
+Text-based flow diagram
+
+.DOT diagram example
+[graphviz, dot-example3, png]
+----
+digraph g {
+  node [shape=record];
+  rankdir="LR";
+    a -> b
+    b -> c
+    c -> d
+    d -> a
+}
+----
+
+.Sample table as an external include from a CSV file
+[format="csv", options="header"]
+|===
+include::Asset_TableInclude.csv[]
+|===
+
+
+
+A table for one sort of aircraft
+
+ifeval::["{Engine}" == "ENG001"]
+.ENG001 table
+[width="100%",options="header,footer"]
+|====================
+| sample | sample | sample 
+| sample | sample | sample 
+| sample | sample | sample 
+|====================
+endif::[]
+
+ifeval::["{Engine}" == "AVX002"]
+.ENG001 table
+[width="100%",options="header,footer"]
+|====================
+| sample | sample | sample 
+| sample | sample | sample 
+| sample | sample | sample 
+|====================
+endif::[]

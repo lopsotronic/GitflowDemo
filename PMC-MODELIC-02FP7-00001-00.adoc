@@ -1,0 +1,66 @@
+= {Company} Operations Manual
+TechPubs Tools Desk, written in ASCIIdoc 
+v1.0, 2019-08
+:doctype: book
+:encoding: utf-8
+:lang: en
+:toc: left
+:toclevels: 2
+:numbered:
+:Company: AcmeAir
+:Engine: ENG001
+:Payload: CAM001
+:Avionics: AVX001
+:Type: SE
+
+== Data Restrictions
+
+include::Asset_DataRestrictions.adoc[tag=Copyright]
+
+*Proprietary Notice*
+
+include::Asset_DataRestrictions.adoc[tag=Proprietary]
+
+*Disclosure*
+
+include::Asset_DataRestrictions.adoc[tag=Disclose]
+
+*Export Statement*
+
+include::Asset_DataRestrictions.adoc[tag=ExportEAR99]
+
+== About this document
+
+include::Asset_AboutThisDocument.adoc[]
+
+== General
+
+=== Safety data
+
+include::Asset_SafetyData.adoc[tag=SafetyFuel]
+
+include::Asset_SafetyData.adoc[tag=SafetyProp]
+
+=== Operational Description
+
+include::DMC-MODELIC-000-00-00-01A-040.adoc[]
+
+== Park, moor, store, return to service
+
+=== Parking
+
+include::DMC-MODELIC-010-10-00-01A-800.adoc[]
+
+=== Storage
+
+include::DMC-MODELIC-010-30-00-01A-800.adoc[]
+
+=== Setup
+
+include::DMC-MODELIC-010-40-00-01A-800.adoc[]
+
+== Operations
+
+=== Normal Procedures
+
+include::DMC-MODELIC-015-31-08-01A-131.adoc[]

@@ -1,0 +1,51 @@
+*ESD Safety*
+
+The warning and cautions that follow apply to all procedures that have ESD (electrostatic discharge) sensitive equipment.
+
+During installation of grounding and ESD*preventative equipment, all safety warnings must be obeyed. Injury or death can occur.
+
+* Isolated ground connections or receptacles must not be used for an ESD ground.
+* Personal ground equipment cannot be used if the supplied voltages are greater than 250 V ac.
+
+The following cautions decrease the risk of damage by ESD. ESD can cause equipment damage.
+
+* Sensitive parts must only be put on a static*dissipative work surface that is grounded.
+* Ground straps must be used.
+* The resistance at ESD ground connections and wrist strap connectors must be less than 35 megaohms.
+* All ESD preventative equipment must be examined daily for damage and defects.
+* The ESD work space must be clean and free from materials that can supply insulation (such as paper and plastic).
+* Surfaces that cause static electricity such as carpeted floors, plastic, or foam must not be used
+.
+* Parts must only be removed from antistatic bags when ready to use them.
+* Parts must not be put on top of antistatic packages. Parts are only protected from ESD when they are in the package.
+* Circuit boards and electronic parts must be held by the edges or brackets only.
+* The connectors or components on circuit boards must not be touched.
+* Components must be lifted to move them.
+
+ESD can destroy or damage sensitive equipment. Many electronic components are sensitive to damage at relatively low voltage levels. Static electricity can damage equipment at voltages that are undetectable. Catastrophic damage can cause immediate failure of a component, but results of latent damage may not appear until the equipment is in use.
+
+[NOTE]
+====
+ANSI/ESD S20.20-2014 contains additional information about ESD cautions and safety considerations.
+====
+
+Grounded work surfaces and wrist straps are necessary to prevent ESD damage. Grounded surfaces dissipate charges and prevent contact with charged, conductive surfaces. 
+
+To ground an air vehicle electrically, a removable cable is attached to a wing pin or wing hook of an installed wing and to a grounding rod on the work surface. Maintenance technicians must attach a wrist strap cable to their wrist and to either the high power spine board connection, wing pin, or wing hook before they service ESD-sensitive modules or parts.
+
+{Company} supplies a field kit to prevent ESD damage. The field kit includes a groundable static-dissipative work surface, wrist strap, cables, and connectors. The manufacturer’s instructions are included in the kit.
+
+Daily inspection for damage and defects is necessary for all parts of the ESD-protective equipment:
+
+* Work surfaces
+* Wrist straps
+* Grounding cords
+* Connections.
+
+Maintainers must keep wrist straps adjusted to stay fully against the skin. Only ESD-compatible skin lotions are permitted.
+
+Work areas must be free of dirt and FOD. Keep electrical insulators (such as plastic and paper) off the work surface and a minimum of 12 in. away from ESD-sensitive items.
+
+{Company} supplies anti-static packaging for ESD-sensitive replacement parts. Technicians must keep parts inside the packaging before they install them and after they remove them for storage or shipping. The packaging prevents a direct discharge to the part inside, and it dissipates charges on the exterior surface. The packaging also reduces the risk of a charge accumulation on the part from an external electrostatic field.
+
+It is important to only put sensitive parts on a grounded work surface after the parts are removed from the packaging. If the sensitive part is placed on top of the packaging, there is no protection from ESD.

@@ -1,0 +1,22 @@
+==== Preflight- Normal operation procedure
+ 
+// Make interactive checklist.
+[options="interactive"]
+.START
+* [ ] Mixture - RICH 
+* [ ] Trottle - OPEN 
+* [ ] Master switch - ON
+* [ ] Flaps - UP
+ifeval::["{Engine}" == "AVX001"]
+* [ ] WEIRD AVIONICS AVX001 - REBOOT 
+endif::[]
+
+[options="interactive"]
+.PRETAXI
+* [ ] Radios - ON 
+* [ ] Transponder - SBY1200 
+* [ ] Radio calls - ATC
+ifeval::["{Engine}" == "ENG001"]
+* [ ] ENG001 - MIX 
+* [ ] ENG001 - PREHEAT TO 150
+endif::[]

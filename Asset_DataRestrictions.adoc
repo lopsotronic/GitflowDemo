@@ -1,0 +1,29 @@
+// tag::ExportEAR99[]
+EXPORT CONTROLLED– This technology or software is subject to the Export Administration Regulations (EAR) (15 CFR Part 730-744) Export, re-export, or transfer contrary to US law is prohibited.
+// end::ExportEAR99[]
+
+// tag::ExportITAR[]
+EXPORT CONTROLLED – This technical data or software requires an export license prior to dissemination to foreign persons. It is controlled by the United States International Traffic in Arms Regulations (ITAR) (22 CFR 120-130). It is the responsibility of each individual in control of this data to abide by all export laws.
+// end::ExportITAR[]
+
+//tag::Disclose[]
+All information, illustrations, and specifications in this document are based on the latest technical data available and may be rescinded or superseded by data updates as they become available.
+
+{Company} reserves the right to make changes at any time without notice.
+
+The information contained in this document is proprietary and sensitive to {Company}, Inc. Dissemination, reproduction or disclosure in whole or in part is not permitted without the prior written consent of {Company}, Inc. This document, as well as the equipment and software described in it, may be used only in accordance with the terms set forth by the specific usage agreement between {Company}, Inc. and the user. The content of this document is furnished for informational use only, is subject to change without notice, and should not be construed as a commitment by {Company}, Inc. {Company}, Inc. assumes no responsibility or liability for any errors or inaccuracies that may appear in this document. 
+//end::Disclose[]
+
+//tag::DiscloseSpecial[]
+*LIMITED RIGHTS*
+
+SPECIAL DISCLOSURE STATEMENT
+//end::DiscloseSpecial[]
+
+//tag::Proprietary[]
+PROPRIETARY NOTICE: The information contained in this supplement is proprietary and sensitive to {Company}. Dissemination, reproduction, or disclosure in whole or in part is not permitted without the prior written consent of {Company}.
+//end::Proprietary[]
+
+// tag::Copyright[]
+© 2019 {Company}, Inc. All rights reserved.
+// end::Copyright[]
