@@ -9,6 +9,8 @@ EXPORT CONTROLLED – This technical data or software requires an export license
 //tag::Disclose[]
 All information, illustrations, and specifications in this document are based on the latest technical data available and may be rescinded or superseded by data updates as they become available.
 
+Thingy
+
 {Company} reserves the right to make changes at any time without notice.
 
 The information contained in this document is proprietary and sensitive to {Company}, Inc. Dissemination, reproduction or disclosure in whole or in part is not permitted without the prior written consent of {Company}, Inc. This document, as well as the equipment and software described in it, may be used only in accordance with the terms set forth by the specific usage agreement between {Company}, Inc. and the user. The content of this document is furnished for informational use only, is subject to change without notice, and should not be construed as a commitment by {Company}, Inc. {Company}, Inc. assumes no responsibility or liability for any errors or inaccuracies that may appear in this document. 
