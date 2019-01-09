@@ -1,20 +1,5 @@
 ==== {Company} Operations Description
 
-Text-based flow diagram
-
-.DOT diagram example
-[graphviz, dot-example3, png]
-----
-digraph g {
-  node [shape=record];
-  rankdir="LR";
-    a -> b
-    b -> c
-    c -> d
-    d -> a
-}
-----
-
 .Sample table as an external include from a CSV file
 [format="csv", options="header"]
 |===
