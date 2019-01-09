@@ -4,7 +4,7 @@ This document includes procedures and data for safe and correct usage of {Compan
 
 *Audience*
 
-This document is for certified {Company} personnel who have completed {Company} training. 
+This document is for certified {Company} personnel who have completed {Company} training. This is not a real book, and this sentence is being used to check git flow mechanisms.
 
 *Revision history*
 
